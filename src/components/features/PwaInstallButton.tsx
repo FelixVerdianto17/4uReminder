@@ -4,7 +4,6 @@ import { Button } from '../ui/button';
 
 export function PwaInstallButton() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isInstallable, setIsInstallable] = useState(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
@@ -12,17 +11,12 @@ export function PwaInstallButton() {
       e.preventDefault();
       // Stash the event so it can be triggered later.
       setDeferredPrompt(e);
-      // Update UI notify the user they can install the PWA
-      setIsInstallable(true);
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
     // Also check if we are already installed
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone;
-    if (isStandalone) {
-      setIsInstallable(false);
-    }
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -47,7 +41,6 @@ export function PwaInstallButton() {
     
     // We've used the prompt, and can't use it again, throw it away
     setDeferredPrompt(null);
-    setIsInstallable(false);
   };
 
   // If not installable and not wanting to show a fallback, we could return null.
@@ -62,9 +55,9 @@ export function PwaInstallButton() {
     <Button 
       variant="outline" 
       onClick={handleInstallClick} 
-      className="bg-white/50 backdrop-blur-md border-[#e0e0e0] text-[#1d1d1f] hover:bg-[#f5f5f7] rounded-full px-4 h-[44px]"
+      className="bg-primary hover:bg-primary-600 text-white rounded-full px-4 h-[44px]"
     >
-      <Download className="w-4 h-4 mr-2 text-[#0066cc]" />
+      <Download className="w-4 h-4" />
       Add to Home Screen
     </Button>
   );
