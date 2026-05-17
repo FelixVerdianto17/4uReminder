@@ -15,8 +15,6 @@ export function PwaInstallButton() {
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
-    // Also check if we are already installed
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (navigator as any).standalone;
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
