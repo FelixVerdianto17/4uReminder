@@ -1,5 +1,5 @@
 import { differenceInDays, startOfDay } from 'date-fns';
-import type { Task, RobotEmotion, EmotionLevel } from '../types';
+import type { Task, RobotEmotion } from '../types';
 
 export function calculateDaysRemaining(deadline: string): number {
   const today = startOfDay(new Date());
