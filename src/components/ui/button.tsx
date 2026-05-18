@@ -8,13 +8,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#0066cc] text-white focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
-        outline: "bg-transparent text-[#0066cc] border-[#0066cc] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
-        secondary: "bg-transparent text-[#0066cc] border-[#0066cc] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
-        ghost: "bg-transparent text-[#0066cc] hover:bg-[#f5f5f7] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
-        destructive: "bg-[#ff3b30] text-white focus-visible:ring-2 focus-visible:ring-[#ff3b30] focus-visible:ring-offset-2",
-        utility: "bg-[#1d1d1f] text-white focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
-        pearl: "bg-[#fafafc] text-[#333333] border-[3px] border-[#f0f0f0] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        default: "bg-[#0066cc] dark:bg-[#2997ff] text-white focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        outline: "bg-transparent text-[#0066cc] dark:text-[#2997ff] border-[#0066cc] dark:border-[#2997ff] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        secondary: "bg-transparent text-[#0066cc] dark:text-[#2997ff] border-[#0066cc] dark:border-[#2997ff] focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        ghost: "bg-transparent text-[#0066cc] dark:text-[#2997ff] hover:bg-[#f5f5f7] dark:hover:bg-zinc-800 focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        destructive: "bg-[#ff3b30] dark:bg-red-600 text-white focus-visible:ring-2 focus-visible:ring-[#ff3b30] focus-visible:ring-offset-2",
+        utility: "bg-[#1d1d1f] dark:bg-zinc-800 text-white focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
+        pearl: "bg-[#fafafc] dark:bg-zinc-900 text-[#333333] dark:text-zinc-300 border-[3px] border-[#f0f0f0] dark:border-zinc-800 focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2",
       },
       size: {
         default: "h-auto px-[22px] py-[11px] rounded-full text-[17px] font-normal",

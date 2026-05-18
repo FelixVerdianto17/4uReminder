@@ -40,24 +40,24 @@ export function TaskCard({ task, onToggle, onDelete }: TaskCardProps) {
   };
 
   return (
-    <Card className={cn("transition-all duration-300", task.isCompleted ? "opacity-60 bg-[#fafafc]" : "")}>
+    <Card className={cn("transition-all duration-300", task.isCompleted ? "opacity-60 bg-[#fafafc] dark:bg-zinc-900/50" : "")}>
       <CardContent className="p-[24px] flex items-center justify-between gap-[24px]">
         <div className="flex items-center gap-4 flex-1">
           <button 
             onClick={() => onToggle(task.id)}
             className={cn(
               "w-[44px] h-[44px] rounded-full border-2 flex items-center justify-center transition-colors shrink-0",
-              task.isCompleted ? "bg-[#0066cc] border-[#0066cc] text-white" : "border-[#cccccc] hover:border-[#0066cc]"
+              task.isCompleted ? "bg-[#0066cc] border-[#0066cc] text-white" : "border-[#cccccc] dark:border-zinc-700 hover:border-[#0066cc] dark:hover:border-[#0066cc]"
             )}
           >
             {task.isCompleted && <Check className="w-4 h-4" />}
           </button>
           
           <div className="flex flex-col space-y-1">
-            <span className={cn("font-semibold text-[17px] tracking-[-0.374px] text-[#1d1d1f]", task.isCompleted && "line-through text-[#7a7a7a]")}>
+            <span className={cn("font-semibold text-[17px] tracking-[-0.374px] text-[#1d1d1f] dark:text-zinc-50", task.isCompleted && "line-through text-[#7a7a7a] dark:text-zinc-400")}>
               {task.name}
             </span>
-            <div className="flex items-center text-[14px] text-[#7a7a7a] tracking-[-0.224px]">
+            <div className="flex items-center text-[14px] text-[#7a7a7a] dark:text-zinc-400 tracking-[-0.224px]">
               <Clock className="w-3 h-3 mr-1" />
               {format(new Date(task.deadline), 'PPP')}
             </div>
@@ -66,10 +66,10 @@ export function TaskCard({ task, onToggle, onDelete }: TaskCardProps) {
         
         <div className="flex items-center gap-3">
           {getDaysBadge()}
-          <Button variant="ghost" size="icon" onClick={handleSetAlarm} className="text-[#0066cc] hover:text-[#0071e3] hover:bg-[#f5f5f7]">
+          <Button variant="ghost" size="icon" onClick={handleSetAlarm} className="text-[#0066cc] hover:text-[#0071e3] hover:bg-[#f5f5f7] dark:hover:bg-zinc-800">
             <Bell className="w-5 h-5" />
           </Button>
-          <Button variant="ghost" size="icon" disabled={isDeleting} onClick={handleDelete} className="text-[#cccccc] hover:text-[#ff3b30] hover:bg-[#ffebe9]">
+          <Button variant="ghost" size="icon" disabled={isDeleting} onClick={handleDelete} className="text-[#cccccc] dark:text-zinc-500 hover:text-[#ff3b30] hover:bg-[#ffebe9] dark:hover:bg-red-950/30">
             {isDeleting ? <Loader2 className="w-5 h-5 animate-spin text-[#ff3b30]" /> : <Trash2 className="w-5 h-5" />}
           </Button>
         </div>

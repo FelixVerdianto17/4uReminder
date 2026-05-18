@@ -7,6 +7,7 @@ import { Calendar } from '../ui/calendar';
 import { Input } from '../ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../ui/card';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { PwaInstallButton } from './PwaInstallButton';
 
 interface TaskFormProps {
   onAddTask: (name: string, deadline: string) => Promise<void> | void;
@@ -32,9 +33,11 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
 
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Add New Task</CardTitle>
-        <CardDescription>Enter task details and a deadline to track it.</CardDescription>
+      <CardHeader className="flex flex-row items-start justify-between space-y-0">
+        <div className="flex flex-col space-y-1.5">
+          <CardTitle>Add New Task</CardTitle>
+          <CardDescription>Enter task details and a deadline to track it.</CardDescription>
+        </div>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -70,6 +73,9 @@ export function TaskForm({ onAddTask }: TaskFormProps) {
             {isLoading ? 'Adding...' : 'Add Task'}
           </Button>
         </form>
+        <div className="mt-10 text-center">
+          <PwaInstallButton />  
+        </div>
       </CardContent>
     </Card>
   );

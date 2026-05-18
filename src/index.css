@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 

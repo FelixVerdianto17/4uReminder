@@ -1,6 +1,9 @@
 import { Card, CardContent } from '../ui/card';
 import type { RobotEmotion } from '../../types';
-import { Bot, Smile, Search, AlertTriangle, Frown } from 'lucide-react';
+import robot1 from '../../assets/robot1.png';
+import robot2 from '../../assets/robot2.png';
+import robot3 from '../../assets/robot3.png';
+import robot4 from '../../assets/robot4.png';
 
 interface RobotWidgetProps {
   emotion: RobotEmotion;
@@ -10,32 +13,32 @@ interface RobotWidgetProps {
 export function RobotWidget({ emotion, totalActiveTasks }: RobotWidgetProps) {
   const getEmotionDetails = () => {
     switch (emotion) {
-      case 'smile': return { icon: Smile, color: 'text-[#0066cc]', bg: 'bg-[#fafafc]', label: 'All Good!' };
-      case 'suspicious': return { icon: Search, color: 'text-[#ff9f0a]', bg: 'bg-[#fafafc]', label: 'Suspicious...' };
-      case 'panic': return { icon: AlertTriangle, color: 'text-[#ff3b30]', bg: 'bg-[#fafafc]', label: 'Panic Mode!' };
-      case 'angry': return { icon: Frown, color: 'text-[#ff3b30]', bg: 'bg-[#fafafc]', label: 'ANGRY!' };
-      default: return { icon: Smile, color: 'text-[#0066cc]', bg: 'bg-[#fafafc]', label: 'All Good!' };
+      case 'smile': return { image: robot1, bg: 'bg-[#fafafc] dark:bg-zinc-800', label: 'Good job 👍✨' };
+      case 'suspicious': return { image: robot2, bg: 'bg-[#fafafc] dark:bg-zinc-800', label: 'okayy, but dont forget!🤨' };
+      case 'panic': return { image: robot3, bg: 'bg-[#fafafc] dark:bg-zinc-800', label: 'Not good😰 finish it now!' };
+      case 'angry': return { image: robot4, bg: 'bg-[#fafafc] dark:bg-zinc-800', label: 'WHAT ARE YOU DOINGG??!!😡 GO FINISH YOUR TASK!' };
+      default: return { image: robot1, bg: 'bg-[#fafafc] dark:bg-zinc-800', label: 'Good job 👍✨' };
     }
   };
 
-  const { icon: EmotionIcon, color, bg, label } = getEmotionDetails();
+  const { image, bg, label } = getEmotionDetails();
 
   return (
     <Card className="w-full max-w-sm overflow-hidden transition-all duration-300">
-      <CardContent className="p-8 flex flex-col items-center justify-center space-y-6">
-        <div className={`p-8 rounded-full transition-colors duration-500 ${bg}`}>
-          <div className="relative">
-            <Bot className={`w-32 h-32 ${color} transition-all duration-500`} style={{ filter: "drop-shadow(rgba(0, 0, 0, 0.22) 3px 5px 30px)" }} />
-            <div className="absolute -bottom-2 -right-2 p-2 rounded-full bg-white ring-1 ring-[#e0e0e0]">
-              <EmotionIcon className={`w-8 h-8 ${color}`} />
-            </div>
-          </div>
+      <CardContent className="p-0 flex flex-col items-center justify-center">
+        <div className={`w-full flex justify-center items-center py-12 px-8 transition-colors duration-500 ${bg}`}>
+          <img 
+            src={image} 
+            alt={label}
+            className="w-full max-w-[240px] h-auto object-contain transition-all duration-500 hover:scale-105"
+            style={{ filter: "drop-shadow(rgba(0, 0, 0, 0.22) 3px 5px 30px)" }} 
+          />
         </div>
         
-        <div className="text-center space-y-2">
-          <h2 className="text-[34px] font-semibold tracking-[-0.374px] text-[#1d1d1f]">{label}</h2>
-          <p className="text-muted-foreground text-[17px] font-normal">
-            Total Active Tasks: <span className="text-[#1d1d1f] font-semibold ml-1">{totalActiveTasks}</span>
+        <div className="text-center space-y-2 p-8 pt-6">
+          <h2 className="text-[34px] font-semibold tracking-[-0.374px] text-[#1d1d1f] dark:text-zinc-50">{label}</h2>
+          <p className="text-muted-foreground dark:text-zinc-400 text-[17px] font-normal">
+            Total Active Tasks: <span className="text-[#1d1d1f] dark:text-zinc-50 font-semibold ml-1">{totalActiveTasks}</span>
           </p>
         </div>
       </CardContent>
