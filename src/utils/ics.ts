@@ -1,7 +1,9 @@
 export function generateICS(taskName: string, deadline: string) {
   const startDate = new Date(deadline);
-  // Default reminder 1 hour before, duration 1 hour
-  const endDate = new Date(startDate.getTime() + 60 * 60 * 1000);
+  startDate.setHours(10, 0, 0, 0);
+  
+  const endDate = new Date(startDate.getTime());
+  endDate.setHours(11, 0, 0, 0);
 
   const formatDate = (date: Date) => {
     return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
